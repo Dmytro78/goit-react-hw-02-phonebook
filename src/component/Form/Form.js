@@ -7,20 +7,22 @@ class Form extends Component {
     number: "",
   };
 
+ handleInputChange = (e) => {
+    const { name, value } = e.currentTarget;
+    this.setState({ [name]: value });
+ };
+  
   submit = (e) => {
     e.preventDefault();
     this.reset();
-    this.props.submit(this.state);
-  };
+    this.props.onSubmit(this.state);
+  }
 
   reset = () => {
     this.setState({ name: "", number: "" });
   };
 
-  handleInputChange = (e) => {
-    const { name, value } = e.currentTarget;
-    this.setState({ [name]: value });
-  };
+ 
 
   render() {
     return (
